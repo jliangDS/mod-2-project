@@ -111,10 +111,7 @@ def vertical_win
             end 
             
         end 
-
     end 
-            
-
 end
 def horizontal_win
     puts "inside horizontal_win"
