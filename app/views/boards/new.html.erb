@@ -1,3 +1,4 @@
+  
 <html>
 <head>
   <title>Bootstrap Example</title>
@@ -8,16 +9,17 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 <style>
-
 table {
-    border: 1px solid black;
-
+    border-spacing: 30px;
     transform: scale(5);
     margin: 50px 0px 0px 500px;
-  
+    margin-top: 200px;
 }
-
-
+th, td {
+    padding: 5px;
+    text-align: left;
+    border: 1px solid black;
+}
 </style>
 <% session[:board] = [[nil,nil,nil,nil,nil,nil],[nil,nil,nil,nil,nil,nil],[nil,nil,nil,nil,nil,nil],[nil,nil,nil,nil,nil,nil],[nil,nil,nil,nil,nil,nil],[nil,nil,nil,nil,nil,nil],[nil,nil,nil,nil,nil,nil]]%>
 <div class="rotated">
