@@ -28,7 +28,6 @@ class BoardsController < ApplicationController
         puts "session[:board]: #{session[:board]}"
         column = session[:column]
         session[:board][column.to_i][0] = "X"
-        session[:board][column.to_i][1] = "O"
         puts session[:board]
         redirect_to board_url(@board)
     end 
