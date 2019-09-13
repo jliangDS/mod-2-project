@@ -13,19 +13,17 @@ class BoardsController < ApplicationController
 
     def player_turn
         session[:column] = params[:column]
+
+
+
+ 
     end
 
     def create
         @board = Board.create 
         test 
         player_turn 
-        puts "-----"
-        puts "session[:column]: #{session[:column]}"
-        puts "session[:counter]: #{session[:counter]}"
-        puts "session[:odd_counter]: #{session[:odd_counter]}"
-        puts "session[:even_counter: #{session[:even_counter]}"
-        puts "session[:play]: #{session[:play]}"
-        puts "session[:board]: #{session[:board]}"
+        
         column = session[:column]
         session[:board][column.to_i][0] = "X"
         puts session[:board]
