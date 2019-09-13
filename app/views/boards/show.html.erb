@@ -20,11 +20,10 @@ th, td {
 .rotated {
     transform: rotate(270deg);
 }
+
 </style>
-<% session[:board] = [["column_0","column_0","column_0","column_0","column_0","column_0"],["column_1","column_1","column_1","column_1","column_1","column_1"],["column_2","column_2","column_2","column_2","column_2","column_2"],["column_3","column_3","column_3","column_3","column_3","column_3"],["column_4","column_4","column_4","column_4","column_4","column_4"],["column_5","column_5","column_5","column_5","column_5","column_5"],["column_6","column_6","column_6","column_6","column_6","column_6"]]%>
 <div class="rotated">
 <table> <!-- Factor in, Second iteration, 1, Plus 1, 0,0, Run, Horizontal, Vertical,   -->
-
 <% session[:board].each do |row| %>
     <tr>
         <% row.each do |column| %>
@@ -34,9 +33,10 @@ th, td {
         <% end %>
     </tr>
 <% end %>
-
 </table>
 </div>
+<br>
+<% board_id = session[:board_id] %>
 <form action="/boards" method="POST">
     <input type="radio" name="column" value=0>column 0<br>
     <input type="radio" name="column" value=1>column 1<br>
@@ -47,4 +47,5 @@ th, td {
     <input type="radio" name="column" value=6>column 6<br>
     <input type="submit" value="Submit">
 </form>
+
 </html>
