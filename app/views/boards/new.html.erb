@@ -1,0 +1,47 @@
+<html>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<style>
+
+table {
+    border: 1px solid black;
+    transform: scale(5);
+    margin: 50px 0px 0px 500px;
+
+}
+
+
+</style>
+<% session[:board] = [[nil,nil,nil,nil,nil,nil],[nil,nil,nil,nil,nil,nil],[nil,nil,nil,nil,nil,nil],[nil,nil,nil,nil,nil,nil],[nil,nil,nil,nil,nil,nil],[nil,nil,nil,nil,nil,nil],[nil,nil,nil,nil,nil,nil]]%>
+<div class="rotated">
+<table> <!-- Factor in, Second iteration, 1, Plus 1, 0,0, Run, Horizontal, Vertical,   -->
+
+<% session[:board].each do |row| %>
+    <tr>
+        <% row.each do |column| %>
+            <td style="background-color: skyblue"><%= column %></td>
+<!-- column td -->
+<!-- row tr -->
+        <% end %>
+    </tr>
+<% end %>
+
+</table>
+</div>
+<form action="/boards" method="POST">
+    <input type="radio" name="column" value=0>column 0<br>
+    <input type="radio" name="column" value=1>column 1<br>
+    <input type="radio" name="column" value=2>column 2<br>
+    <input type="radio" name="column" value=3>column 3<br>
+    <input type="radio" name="column" value=4>column 4<br>
+    <input type="radio" name="column" value=5>column 5<br>
+    <input type="radio" name="column" value=6>column 6<br>
+    <input type="submit" value="Submit">
+</form>
+</html>
