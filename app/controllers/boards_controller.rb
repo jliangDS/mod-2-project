@@ -19,9 +19,60 @@ class BoardsController < ApplicationController
  
     end
 
-    @@player_turn = 0
+    def vertical_win
+        x = 0
+        y = 0
+        odd_counter = 0
+        even_counter = 0
+        test_row = true
 
+        puts "session[:board][x][y]: #{session[:board][x][y]}"
+        puts "session[:board][1][0]: #{session[:board][1][0]}"
+        puts "session[:board][2][0]: #{session[:board][2][0]}"
+        puts "session[:board][3][0]: #{session[:board][3][0]}"
 
+        if session[:board][x][y] != nil
+            if session[:board][x][y] % 2 == 0
+                puts "session[:board][#{x}][#{y}] is player 1"
+                odd_counter = 0
+                even_counter += 1
+            else 
+                puts "session[:board][#{x}][#{y}] is player 2"
+                even_counter = 0
+                odd_counter += 1 
+            end
+            
+        end
+
+        # while test_row == true
+        #     if session[:board][x][y] != nil
+        #         if session[:board][x][y] % 2 == 0
+        #             puts "session[:board][x][y]: is an even number"
+        #             odd_counter = 0
+        #             even_counter += 1
+        #         else
+        #             puts "session[:board][x][y]: is an odd number"
+        #             even_counter = 0
+        #             odd_counter += 1
+        #         end
+
+        #         if even_counter == 4 || odd_counter == 4
+        #             puts "a player wins"
+        #             break
+        #         else
+        #             puts "no player has won"
+        #         end
+        #     end
+        #     x += 1
+        #     if y == 6
+        #         y += 1
+        #         x = 0
+        #         if y == 5
+        #             test_row = false 
+        #         end
+        #     end
+        # end    
+    end
 
     def create
         @board = Board.create 
@@ -47,6 +98,7 @@ class BoardsController < ApplicationController
 
         @@player_turn += 1
 
+        vertical_win
 
         # while counter < 6 && found = false do
             # byebug
@@ -94,6 +146,7 @@ class BoardsController < ApplicationController
     end 
 
     def new
+        @@player_turn = 0
     end 
 
     def edit
